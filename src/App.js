@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    posts: []
+  }
+
+
+  componentDidMount() {
+    fetch('http://127.0.0.1:8000/api/posts/')
+      .then(res => res.json())
+      .then(data => this.setState({ posts: data }));
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>GhostPost v2.0</h1>
+        <main>
+          {this.state.posts.map(p => (
+            <ul>
+              <h2>{p.is_boast}</h2>
+              <h3>"{p.post}"</h3>
+              <p>Score: {p.total_score}</p>
+              <p>Created: {p.time_submitted}</p>
+              <input type='button' value='Upvote' />
+              <input type='button' value='Downvote' />
+              <hr />
+            </ul>
+          ))};
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;
