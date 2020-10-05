@@ -1,35 +1,33 @@
 import React from 'react';
 import './App.css';
+import Sidebar from './Components/Sidebar';
+import Posts from './Components/Posts';
+import Boasts from './Components/Boasts';
+import Roasts from './Components/Roasts';
+import Trending from './Components/Trending';
+import CreatePost from './Components/CreatePost';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 class App extends React.Component {
-  state = {
-    posts: []
-  }
 
-
-  componentDidMount() {
-    fetch('http://127.0.0.1:8000/api/posts/')
-      .then(res => res.json())
-      .then(data => this.setState({ posts: data }));
-  }
 
   render() {
     return (
-      <div className="App">
-        <h1>GhostPost v2.0</h1>
-        <main>
-          {this.state.posts.map(p => (
-            <ul>
-              <h2>{p.is_boast}</h2>
-              <h3>"{p.post}"</h3>
-              <p>Score: {p.total_score}</p>
-              <p>Created: {p.time_submitted}</p>
-              <input type='button' value='Upvote' />
-              <input type='button' value='Downvote' />
-              <hr />
-            </ul>
-          ))};
-        </main>
+
+      <div className="app">
+        <Router>
+          <div className="app__page">
+            <Sidebar />
+            <Switch> 
+              <Route path='/boasts'><Boasts /></Route>
+              <Route path='/roasts'><Roasts /></Route>
+              <Route path='/highest_rated'><Trending /></Route>
+              <Route path='/create'><CreatePost /></Route>
+              <Route path='/'><Posts /></Route>
+            </Switch>
+          </div>
+        </Router>
       </div>
     );
   }
