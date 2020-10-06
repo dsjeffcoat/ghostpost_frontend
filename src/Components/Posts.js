@@ -60,13 +60,6 @@ class Posts extends React.Component {
             })
     }
 
-    // handleChange = (e) => {
-    //     e.preventDefault();
-    //     fetch('http://127.0.0.1:8000/api/posts/')
-    //         .then(res => res.json())
-    //         .then(res => this.forceUpdate(this.componentDidMount));
-    // }
-
 
     render() {
         const { posts } = this.state

@@ -1,6 +1,5 @@
 import React from 'react';
 import './css/Trending.css';
-import { Link } from 'react-router-dom';
 import * as moment from 'moment';
 import Button from '@material-ui/core/Button';
 
