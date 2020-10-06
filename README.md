@@ -46,8 +46,13 @@ Extra credit (3 points):
 
 Diarte Jeffcoat
 
+## Github Repo for the Django Backend
+
+https://github.com/dsjeffcoat/ghostpost_backend
+
 ### Acknowledgments
 
 Credit to:
 
 Matt Perry (assisted with Upvote/Downvote functionality on 10/05/20)
+Matt Perry (assisted with Create Post functionality on 10/06/20)

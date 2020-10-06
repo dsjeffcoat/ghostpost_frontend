@@ -29,13 +29,17 @@ class CreatePost extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://127.0.0.1:8000/api/posts/', { 
-            method: 'POST', 
+        console.log(document.getElementById('post').value)
+        console.log(document.getElementById('is_boast').value)
+        console.log(e)
+        console.log(this.state)
+        fetch('http://127.0.0.1:8000/api/posts/', {
+            method: 'POST',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(this.state)
+            body: JSON.stringify({ is_boast: document.getElementById('is_boast').value, post: document.getElementById('post').value })
         })
             .then(res => res.json())
             .then(res => {
@@ -52,10 +56,10 @@ class CreatePost extends React.Component {
                 <h1>Create A Post</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label for="post">Post:</label>
-                    <textarea name='post' value={this.state.posts.post} />
+                    <textarea id="post" name='post' value={this.state.posts.post} />
                     <br />
                     <label for="is_boast">Boast or Roast?:</label>
-                    <select name="is_boast" value={this.state.posts.is_boast}>
+                    <select id="is_boast" name="is_boast" value={this.state.posts.is_boast}>
                         <option selected="Boast">Boast</option>
                         <option selected="Roast">Roast</option>
                     </select>
