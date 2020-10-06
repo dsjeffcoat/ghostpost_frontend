@@ -1,6 +1,8 @@
 import React from 'react';
 import './css/CreatePost.css';
 import { Link } from 'react-router-dom';
+import * as moment from 'moment';
+import Button from '@material-ui/core/Button';
 
 class CreatePost extends React.Component {
     constructor(props){
