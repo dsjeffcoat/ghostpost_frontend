@@ -55,4 +55,5 @@ https://github.com/dsjeffcoat/ghostpost_backend
 Credit to:
 
 Matt Perry (assisted with Upvote/Downvote functionality on 10/05/20)
+
 Matt Perry (assisted with Create Post functionality on 10/06/20)
